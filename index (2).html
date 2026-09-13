@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Path Through Sacred Roots</title>
+<style>
+  :root{
+    --black:#0a0a0a;--cream:#FAF7F2;--gold:#B8960C;--light-gold:#F5EED8;
+    --warm-gray:#6B6560;--divider:#D4C9B0;--text:#0a0a0a;--muted:#6B6560;
+    --stage-1:#1D9E75;--stage-2:#378ADD;--stage-3:#7F77DD;
+    --stage-4:#C45B8A;--stage-5:#BA7517;--stage-inf:#0F6E56;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--cream);color:var(--text);font-family:Georgia,'Times New Roman',serif;min-height:100vh}
+  header{background:var(--black);padding:28px 24px 22px;text-align:center;border-bottom:1px solid var(--gold)}
+  header .eyebrow{font-size:11px;letter-spacing:0.15em;color:var(--gold);margin-bottom:10px;font-family:Georgia,serif}
+  header h1{font-size:clamp(20px,4vw,28px);font-weight:400;color:#fff;margin-bottom:6px;letter-spacing:0.02em}
+  header p{font-size:13px;color:#aaa;font-style:italic}
+  .legend{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;padding:16px 24px;border-bottom:1px solid var(--divider)}
+  .leg{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted);font-family:Arial,sans-serif}
+  .leg-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+  main{max-width:680px;margin:0 auto;padding:24px 20px 60px}
+  .stage{position:relative;padding-left:28px;padding-bottom:20px}
+  .stage:not(:last-child)::before{content:'';position:absolute;left:7px;top:20px;bottom:0;width:1px;background:var(--divider)}
+  .dot{position:absolute;left:0;top:4px;width:16px;height:16px;border-radius:50%}
+  .stage-num{font-size:10px;color:var(--muted);letter-spacing:0.12em;font-family:Arial,sans-serif;margin-bottom:2px}
+  .stage-header{cursor:pointer;user-select:none}
+  .stage-title-row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .stage-title{font-size:16px;font-weight:400;color:var(--text);letter-spacing:0.01em}
+  .chevron{font-size:18px;color:var(--muted);transition:transform 0.2s;line-height:1;flex-shrink:0}
+  .stage.open .chevron{transform:rotate(180deg)}
+  .stage-sub{font-size:11.5px;color:var(--muted);font-style:italic;margin-top:2px}
+  .body{display:none;margin-top:12px}
+  .stage.open .body{display:block}
+  .products{display:flex;flex-direction:column;gap:7px}
+  .prod{border-radius:8px;padding:9px 12px;background:#fff;border-left:3px solid transparent;box-shadow:0 1px 3px rgba(0,0,0,0.05)}
+  .prod-name{font-size:13px;font-weight:500;color:var(--text)}
+  .prod-desc{font-size:11.5px;color:var(--muted);margin-top:3px;line-height:1.5;font-family:Arial,sans-serif}
+  .badge{display:inline-block;font-size:9px;padding:2px 7px;border-radius:3px;margin-left:6px;vertical-align:middle;font-family:Arial,sans-serif;font-weight:600;letter-spacing:0.04em}
+  .note{font-size:11.5px;color:var(--muted);font-style:italic;line-height:1.6;padding:8px 12px;background:var(--light-gold);border-radius:6px;border-left:2px solid var(--gold);margin-top:10px;font-family:Arial,sans-serif}
+  .pdf-bar{text-align:center;padding:20px;background:var(--light-gold);border-top:1px solid var(--divider);border-bottom:1px solid var(--divider);margin-bottom:24px;border-radius:8px}
+  .pdf-bar p{font-size:12px;color:var(--muted);margin-bottom:10px;font-family:Arial,sans-serif;font-style:italic}
+  .pdf-btn{display:inline-block;background:var(--black);color:#fff;font-family:Arial,sans-serif;font-size:12px;letter-spacing:0.08em;padding:10px 24px;border-radius:4px;text-decoration:none;border:none;cursor:pointer}
+  .pdf-btn:hover{background:#333}
+  footer{text-align:center;padding:24px;background:var(--black);color:var(--gold);font-size:11px;letter-spacing:0.1em;font-family:Arial,sans-serif}
+</style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">SACRED ROOTS · ALETHEIA SPHINX</div>
+  <h1>Your Path Through Sacred Roots</h1>
+  <p>Six stages. One journey. Begin wherever you are.</p>
+</header>
+
+<div class="legend">
+  <div class="leg"><div class="leg-dot" style="background:#1D9E75"></div>free</div>
+  <div class="leg"><div class="leg-dot" style="background:#7F77DD"></div>intermediate</div>
+  <div class="leg"><div class="leg-dot" style="background:#C45B8A"></div>advanced</div>
+</div>
+
+<main>
+  <div class="pdf-bar">
+    <p>Prefer a printable version?</p>
+    <a class="pdf-btn" href="download.html">↓ Download the PDF Map</a>
+  </div>
+  <div id="stages"></div>
+</main>
+
+<footer>sacredroots.com</footer>
+
+<script>
+const stages=[
+  {color:"#1D9E75",num:"Stage I",title:"Enter the World",sub:"Begin here — all free",
+   note:"Download one or all before buying anything. No commitment required.",
+   products:[
+    {n:"The Threshold",d:"Free transmission piece — your first taste of Sacred Roots.",b:"free"},
+    {n:"The Sacred Map",d:"Free ecosystem guide — see the full landscape before you choose a path.",b:"free"},
+    {n:"Sacred Practice Guide",d:"Free contemplative guide — morning/evening rhythms, breath, silence.",b:"free"},
+    {n:"Sacred Roots Starter Deck",d:"Free 12-card intro deck — a sampler of the activation work ahead.",b:"free"},
+  ]},
+  {color:"#378ADD",num:"Stage II",title:"Awaken the Interior",sub:"First inner work — foundations",
+   note:"The Priestess Path Workbook (included in three bundles) is the deepest process work at this stage. Daughter of Light belongs here for young women ages 15–18.",
+   products:[
+    {n:"Conscious Motherhood Bundle",d:"Affirmation deck, 30-day journal, Priestess Path Workbook."},
+    {n:"Conscious Womanhood Bundle",d:"Affirmation deck, 30-day journal, Priestess Path Workbook."},
+    {n:"Conscious Sagehood Bundle",d:"Affirmation deck, 30-day journal, Priestess Path Workbook."},
+    {n:"Conscious Healer Bundle",d:"Deck, journal, and workbook for women in healing or service."},
+    {n:"Daughter of Light Suite",d:"Affirmation deck, 30-day journal, and workbook for young women ages 15–18."},
+    {n:"Secret Power Series — Vols. I–IV",d:"Conscious attention, repetition, imagination, and the word."},
+  ]},
+  {color:"#7F77DD",num:"Stage III",title:"Unveiling and Embodiment",sub:"The sacred feminine arc — parallel to Stage IV",
+   note:"The Summit Series and Empress Path are parallel tracks. Choose by resonance, not sequence.",
+   products:[
+    {n:"The Summit Series — Books 1–5",d:"The Liminal · The Sacred Feminine · The Sacred Body · Expansion · The Alchemist and the Field."},
+    {n:"LUMINA Deck",d:"75-card alignment and activation deck. Companion to all five Summit Series books."},
+  ]},
+  {color:"#C45B8A",num:"Stage IV",title:"Transmission and Sovereignty",sub:"Empress Path — parallel to Stage III",
+   note:"The full Empress Path suite is the deepest container Sacred Roots currently offers.",
+   products:[
+    {n:"Empress Oracle Activation Deck",d:"55-card activation deck across 8 initiatory pillars."},
+    {n:"Empress Path Morning Journal",d:"60-day Octave Consecration arc across the same 8 pillars."},
+    {n:"Empress Path Workbook",d:"147 pages of deep interior process work."},
+    {n:"Transmission Teachings — Vol. IV",d:"21 advanced teachings on coherence, discernment, and the calibrated instrument.",b:"advanced"},
+    {n:"The Living Instrument — Vol. V",d:"The fully inhabited life. Archangelic and Arcturian streams. The instrument at full capacity.",b:"advanced"},
+  ]},
+  {color:"#BA7517",num:"Stage V",title:"Field and Outer Cosmos",sub:"Science and the sacred — any stage",
+   note:"Can be read alongside any other stage.",
+   products:[
+    {n:"Ancient Light Series — Vols. I–V",d:"The Field · The Body as Instrument · Frequency and Form · Sun Moon Earth · The Unified Field."},
+    {n:"Living Cosmos Companion Journal",d:"Companion journal for all five Ancient Light volumes."},
+    {n:"Secret Power Series — Vols. V–XI",d:"Silence, resonance, polarity, will, surrender, grace, sovereignty, and the life of service."},
+    {n:"The Inner Court Companion Journal",d:"11-section companion journal — one per Secret Power volume."},
+  ]},
+  {color:"#0F6E56",num:"∞",title:"Your Living Practice",sub:"Return to this at any stage, always",
+   products:[
+    {n:"Inner Sanctuary",d:"AI-powered interactive web app. Chambers, threshold ceremony, cloud-synced. A living container for the whole journey."},
+  ]},
+];
+
+const wrap=document.getElementById('stages');
+stages.forEach(s=>{
+  const el=document.createElement('div');
+  el.className='stage';
+
+  const dot=document.createElement('div');
+  dot.className='dot';
+  dot.style.background=s.color;
+  el.appendChild(dot);
+
+  const num=document.createElement('div');
+  num.className='stage-num';
+  num.textContent=s.num;
+  el.appendChild(num);
+
+  const hdr=document.createElement('div');
+  hdr.className='stage-header';
+  hdr.innerHTML=`<div class="stage-title-row"><span class="stage-title">${s.title}</span><span class="chevron">›</span></div><div class="stage-sub">${s.sub}</div>`;
+  el.appendChild(hdr);
+
+  const body=document.createElement('div');
+  body.className='body';
+
+  const prods=document.createElement('div');
+  prods.className='products';
+  s.products.forEach(p=>{
+    const pd=document.createElement('div');
+    pd.className='prod';
+    pd.style.borderLeftColor=s.color;
+    const badge=p.b?`<span class="badge" style="background:${s.color}22;color:${s.color}">${p.b}</span>`:'';
+    pd.innerHTML=`<div class="prod-name">${p.n}${badge}</div><div class="prod-desc">${p.d}</div>`;
+    prods.appendChild(pd);
+  });
+  body.appendChild(prods);
+
+  if(s.note){
+    const n=document.createElement('div');
+    n.className='note';
+    n.textContent=s.note;
+    body.appendChild(n);
+  }
+  el.appendChild(body);
+
+  hdr.addEventListener('click',()=>{
+    const isOpen=el.classList.contains('open');
+    document.querySelectorAll('.stage').forEach(x=>x.classList.remove('open'));
+    if(!isOpen)el.classList.add('open');
+  });
+
+  wrap.appendChild(el);
+});
+</script>
+</body>
+</html>

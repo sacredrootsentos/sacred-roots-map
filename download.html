@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download the Sacred Roots Map — Sacred Roots</title>
+<style>
+  :root{
+    --black:#0a0a0a;--cream:#FAF7F2;--gold:#B8960C;--light-gold:#F5EED8;
+    --warm-gray:#6B6560;--divider:#D4C9B0;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--cream);color:var(--black);font-family:Georgia,'Times New Roman',serif;min-height:100vh;display:flex;flex-direction:column}
+  header{background:var(--black);padding:24px;text-align:center;border-bottom:1px solid var(--gold)}
+  header .eyebrow{font-size:10px;letter-spacing:0.15em;color:var(--gold);margin-bottom:8px}
+  header h1{font-size:clamp(18px,3.5vw,24px);font-weight:400;color:#fff;letter-spacing:0.02em}
+
+  main{flex:1;display:flex;align-items:center;justify-content:center;padding:40px 24px}
+  .card{max-width:480px;width:100%;text-align:center}
+
+  .icon{width:64px;height:64px;margin:0 auto 20px;background:var(--light-gold);border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid var(--divider)}
+  .icon svg{width:28px;height:28px;fill:none;stroke:var(--gold);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+
+  h2{font-size:22px;font-weight:400;margin-bottom:10px;letter-spacing:0.01em}
+  .sub{font-size:13px;color:var(--warm-gray);font-style:italic;margin-bottom:28px;line-height:1.6}
+
+  .download-btn{display:inline-flex;align-items:center;gap:10px;background:var(--black);color:#fff;font-family:Arial,sans-serif;font-size:13px;letter-spacing:0.08em;padding:14px 32px;border-radius:4px;text-decoration:none;margin-bottom:16px;transition:background 0.2s}
+  .download-btn:hover{background:#333}
+  .download-btn svg{width:16px;height:16px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+
+  .hint{font-size:11px;color:var(--warm-gray);font-family:Arial,sans-serif;margin-bottom:32px}
+
+  .divider{border:none;border-top:1px solid var(--divider);margin:28px 0}
+
+  .back-link{font-size:12px;color:var(--warm-gray);font-family:Arial,sans-serif;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+  .back-link:hover{color:var(--black)}
+
+  .what-inside{text-align:left;background:#fff;border-radius:10px;padding:20px 22px;border:1px solid var(--divider);margin-bottom:28px;box-shadow:0 1px 4px rgba(0,0,0,0.05)}
+  .what-inside h3{font-size:12px;letter-spacing:0.1em;color:var(--warm-gray);font-family:Arial,sans-serif;margin-bottom:12px;text-transform:uppercase}
+  .what-inside ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+  .what-inside li{font-size:12.5px;color:var(--black);font-family:Arial,sans-serif;display:flex;align-items:flex-start;gap:8px;line-height:1.4}
+  .what-inside li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:5px}
+
+  footer{text-align:center;padding:20px;background:var(--black);color:var(--gold);font-size:11px;letter-spacing:0.1em;font-family:Arial,sans-serif}
+</style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">SACRED ROOTS · ALETHEIA SPHINX</div>
+  <h1>The Sacred Roots Map</h1>
+</header>
+
+<main>
+  <div class="card">
+    <div class="icon">
+      <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>
+    </div>
+
+    <h2>Your Path Through Sacred Roots</h2>
+    <p class="sub">A printable guide to the six stages of the Sacred Roots journey — from your first free download to the living practice that holds it all.</p>
+
+    <div class="what-inside">
+      <h3>What's inside</h3>
+      <ul>
+        <li>Six stages mapped from entry to embodiment</li>
+        <li>Every current product listed by stage and purpose</li>
+        <li>Notes on where to begin and how the stages relate</li>
+        <li>Free and advanced badges so you can orient quickly</li>
+      </ul>
+    </div>
+
+    <a class="download-btn" href="Sacred_Roots_Ecosystem_Map.pdf" download="Sacred_Roots_Ecosystem_Map.pdf">
+      <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      DOWNLOAD THE MAP (PDF)
+    </a>
+
+    <div class="hint">Free · No email required · Opens in any PDF viewer</div>
+
+    <hr class="divider">
+
+    <a class="back-link" href="index.html">
+      ← Explore the interactive map
+    </a>
+  </div>
+</main>
+
+<footer>sacredroots.com</footer>
+</body>
+</html>
